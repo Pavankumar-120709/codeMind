@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F7F5F0;
+  --surface: #FFFFFF;
+  --surface-cream: #FBF9F5;
+  --charcoal: #292824;
+  --border: #E5E1D8;
+  --terracotta: #C66B48;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--charcoal);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars inspired by subtle Claude surfaces */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9D4C7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C4BEB0;
+}
