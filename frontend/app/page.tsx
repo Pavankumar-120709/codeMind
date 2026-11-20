@@ -42,6 +42,11 @@ export default function Home() {
 
   useEffect(() => {
     loadRepos();
+    // Maximum 3.5s loading safety timeout to prevent getting permanently stuck
+    const fallbackTimer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
   // Load conversations when currentRepo changes
@@ -110,6 +115,12 @@ export default function Home() {
           <Sparkles className="w-6 h-6" />
         </div>
         <p className="text-xs font-semibold text-[#292824]">Initializing CodeMind...</p>
+        <button
+          onClick={() => setIsLoading(false)}
+          className="mt-4 text-[11px] text-[#76736A] hover:text-[#C66B48] underline underline-offset-4 transition-colors"
+        >
+          Skip waiting &amp; open dashboard
+        </button>
       </div>
     );
   }

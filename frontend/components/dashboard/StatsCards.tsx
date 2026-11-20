@@ -10,28 +10,28 @@ export const StatsCards: React.FC<StatsCardsProps> = ({ repo }) => {
   const cards = [
     {
       label: "Indexed Files",
-      value: repo.total_files.toLocaleString(),
+      value: (repo?.total_files ?? 0).toLocaleString(),
       subtext: "Parsed source files",
       icon: FileCode,
       color: "text-amber-700 bg-amber-50 border-amber-200"
     },
     {
       label: "Vector Chunks",
-      value: repo.total_chunks.toLocaleString(),
+      value: (repo?.total_chunks ?? 0).toLocaleString(),
       subtext: "Semantic embeddings in Chroma",
       icon: Layers,
       color: "text-indigo-700 bg-indigo-50 border-indigo-200"
     },
     {
       label: "Lines of Code",
-      value: repo.total_lines.toLocaleString(),
+      value: (repo?.total_lines ?? 0).toLocaleString(),
       subtext: "Across tracked languages",
       icon: FileText,
       color: "text-emerald-700 bg-emerald-50 border-emerald-200"
     },
     {
       label: "Index Status",
-      value: repo.status.toUpperCase(),
+      value: (repo?.status ?? "ready").toUpperCase(),
       subtext: repo.status === "completed" ? "Ready for queries" : "In progress",
       icon: repo.status === "completed" ? CheckCircle2 : Cpu,
       color: repo.status === "completed" 
